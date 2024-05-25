@@ -49,7 +49,7 @@ node {
                     docker.image('624622131033.dkr.ecr.eu-central-1.amazonaws.com/aws-cli:2.9.20-3').inside {
                         withAWS(credentials:'aws-milc-production') {
                             script {
-                                sh "aws eks update-kubeconfig --name milc"
+                                sh "aws eks update-kubeconfig --name milc --region eu-central-1"
                                     ["ArtRoomNEW","AwardsLobby", "BuisnessIsland","LLShop","MCShop","OldenburgTown","OldenburgOpera"].collect {
                                         it.toLowerCase()
                                     }.each {
